@@ -4,6 +4,10 @@ FactoryGirl.define do
   factory :owner do
     first_name "MyString"
     last_name "MyString"
-    email "MyString"
+    email "test@test.com"
+
+    factory :owner_with_dogs do
+      after(:create) {|instance| create(:dog, owner: instance)}
+    end
   end
 end
